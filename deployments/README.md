@@ -30,8 +30,7 @@
 
 4. Test the application:
    ```bash
-   kubectl port-forward service/demo-app-service 8080:80
-   curl http://localhost:8080/hello
+   minikube service kotlin-app-service
    ```
 
 ## Cleanup
