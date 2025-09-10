@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: kotlin-app-config
-data:
-  application.properties: |
-    greeting.message=Hello from a ConfigMap!

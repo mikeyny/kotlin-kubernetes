@@ -18,6 +18,8 @@
 
 2. Deploy to Kubernetes:
    ```bash
+   kubectl apply -f deployments/postgres-secret.yaml
+   kubectl apply -f deployments/postgres.yaml
    kubectl apply -f deployments/deployment.yaml
    kubectl apply -f deployments/service.yaml
    ```
@@ -30,8 +32,7 @@
 
 4. Test the application:
    ```bash
-   kubectl port-forward service/demo-app-service 8080:80
-   curl http://localhost:8080/hello
+   minikube service kotlin-app-service
    ```
 
 ## Cleanup
