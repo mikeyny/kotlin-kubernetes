@@ -14,13 +14,19 @@ spec:
     spec:
       containers:
       - name: kotlin-k8s-app
-        image: mikeyny/kotlin-app:v2
+        image: mikeyny/kotlin-app:v3
         ports:
         - containerPort: 8080
-        volumeMounts:
-        - name: config-volume
-          mountPath: /app/config
-      volumes:
-      - name: config-volume
-        configMap:
-          name: kotlin-app-config
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:postgresql://postgres-service:5432/greetingsdb"
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_USER
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
