@@ -6,7 +6,7 @@
    (cd demo && ./gradlew clean build)
    ```
 
-2. Build Docker image (builds the app inside container):
+2. Build Docker image:
    ```bash
    docker build -f demo/Dockerfile -t demo-app:latest .
    ```
