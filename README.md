@@ -35,3 +35,10 @@
 ```bash
 kubectl delete -f deployments/
 ```
+
+## Other Versions
+
+This is the finished version of the tutorial. You can view other versions by navigating to different branches:
+
+- [starter branch](https://github.com/mikeyny/kotlin-kubernetes/tree/starter)
+- [config-maps branch](https://github.com/mikeyny/kotlin-kubernetes/tree/config-maps)
