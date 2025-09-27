@@ -13,7 +13,14 @@ spec:
         app: kotlin-app
     spec:
       containers:
-      - name: kotlin-k8s-app
-        image: mikeyny/kotlin-app:hello-world
-        ports:
-        - containerPort: 8080
+        - name: kotlin-k8s-app
+          image: mikeyny/kotlin-app:v2
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: kotlin-app-config

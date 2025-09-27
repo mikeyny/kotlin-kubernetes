@@ -13,6 +13,7 @@
 
 3. Deploy to Kubernetes:
    ```bash
+   kubectl apply -f k8s/configmap.yaml
    kubectl apply -f k8s/deployment.yaml
    kubectl apply -f k8s/service.yaml
    ```
@@ -36,7 +37,7 @@ kubectl delete -f k8s/
 
 ## Other Versions
 
-This is the starter version of the tutorial. You can view other versions by navigating to different branches:
+This is the finished version of the tutorial. You can view other versions by navigating to different branches:
 
+- [starter branch](https://github.com/mikeyny/kotlin-kubernetes/tree/starter)
 - [Final branch](https://github.com/mikeyny/kotlin-kubernetes)
-- [config-maps branch](https://github.com/mikeyny/kotlin-kubernetes/tree/config-maps)
