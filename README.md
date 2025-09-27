@@ -8,15 +8,16 @@
 
 2. Build Docker image:
    ```bash
-   docker build -f demo/Dockerfile -t demo-app:latest .
+   cd demo
+   docker build -f Dockerfile -t demo-app:latest .
    ```
 
 3. Deploy to Kubernetes:
    ```bash
-   kubectl apply -f deployments/postgres-secret.yaml
-   kubectl apply -f deployments/postgres.yaml
-   kubectl apply -f deployments/deployment.yaml
-   kubectl apply -f deployments/service.yaml
+   kubectl apply -f k8s/postgres-secret.yaml
+   kubectl apply -f k8s/postgres.yaml
+   kubectl apply -f k8s/deployment.yaml
+   kubectl apply -f k8s/service.yaml
    ```
 
 4. Check deployment status:
@@ -33,7 +34,7 @@
 ## Cleanup
 
 ```bash
-kubectl delete -f deployments/
+kubectl delete -f k8s/
 ```
 
 ## Other Versions
