@@ -31,7 +31,7 @@
 ## Cleanup
 
 ```bash
-kubectl delete -f deployments/
+kubectl delete -f k8s/
 ```
 
 ## Other Versions
