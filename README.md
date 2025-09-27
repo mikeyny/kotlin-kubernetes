@@ -8,7 +8,7 @@
 
 2. Build Docker image (builds the app inside container):
    ```bash
-   docker build -f Dockerfile -t demo-app:latest .
+   docker build -f Dockerfile -t kotlin-app:latest .
    ```
 
 3. Deploy to Kubernetes:
