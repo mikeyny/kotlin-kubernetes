@@ -38,5 +38,6 @@ kubectl delete -f k8s/
 
 This is the starter version of the tutorial. You can view other versions by navigating to different branches:
 
-- [Final branch](https://github.com/mikeyny/kotlin-kubernetes)
 - [config-maps branch](https://github.com/mikeyny/kotlin-kubernetes/tree/config-maps)
+- [database branch](https://github.com/mikeyny/kotlin-kubernetes)
+- [ingress branch](https://github.com/mikeyny/kotlin-kubernetes/tree/ingress)
