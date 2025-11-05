@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kotlin-app-v2-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kotlin-app-v2
+  template:
+    metadata:
+      labels:
+        app: kotlin-app-v2
+    spec:
+      containers:
+        - name: kotlin-k8s-app-v2
+          image: mikeyny/kotlin-app:v2
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: kotlin-app-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kotlin-app-config
+data:
+  application.properties: |
+    greeting.message=Hello from a v2 stable app!
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kotlin-app-v2-service
+spec:
+  selector:
+    app: kotlin-app-v2
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP

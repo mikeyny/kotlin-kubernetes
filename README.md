@@ -1,31 +1,29 @@
 # Deployment Instructions
 
-1. Build kotlin app
+1. Enable minikube ingress:
 
    ```bash
-   ./gradlew clean build
+   minikube addons enable ingress
    ```
 
-2. Build Docker image (builds the app inside container):
-   ```bash
-   docker build -f Dockerfile -t kotlin-app:latest .
-   ```
-
-3. Deploy to Kubernetes:
+2. Deploy to Kubernetes:
    ```bash
    kubectl apply -f k8s/postgres-secret.yaml
    kubectl apply -f k8s/postgres.yaml
    kubectl apply -f k8s/deployment.yaml
    kubectl apply -f k8s/service.yaml
+   kubectl apply -f k8s/services.yaml
+   kubectl apply -f ingress.yaml
+   kubectl apply -f ingress-canary.yaml
    ```
 
-4. Check deployment status:
+3. Check deployment status:
    ```bash
    kubectl get pods
    kubectl get services
    ```
 
-5. Test the application:
+4. Test the application:
    ```bash
    minikube service kotlin-app-service
    ```
@@ -42,3 +40,4 @@ This is the finished version of the tutorial. You can view other versions by nav
 
 - [starter branch](https://github.com/mikeyny/kotlin-kubernetes/tree/starter)
 - [config-maps branch](https://github.com/mikeyny/kotlin-kubernetes/tree/config-maps)
+- [database branch](https://github.com/mikeyny/kotlin-kubernetes)
